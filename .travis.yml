@@ -24,4 +24,14 @@ addons:
     - libx11-dev
     - libxkbfile-dev
 install: skip
+
 script: yarn
+
+before_deploy:
+- printf "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}\n" >> ~/.npmrc
+deploy:
+  provider: script
+  script: yarn publish:next
+  on:
+    branch: master
+  skip_cleanup: true
