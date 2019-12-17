@@ -1,0 +1,27 @@
+sudo: required
+language: node_js
+node_js: '10'
+git:
+  depth: 1
+cache:
+  yarn: true
+  directories:
+    - node_modules
+branches:
+  only:
+  - master
+env:
+  global:
+    - CXX=g++-4.8
+    - NODE_OPTIONS="--max_old_space_size=4096"
+addons:
+  apt:
+    update: truegit s
+    packages:
+    - g++-4.8
+    - libsecret-1-dev
+    - xvfb
+    - libx11-dev
+    - libxkbfile-dev
+install: skip
+script: yarn
