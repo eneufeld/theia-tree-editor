@@ -14,7 +14,8 @@
   "typings": "lib/browser/index.d.ts",
   "files": [
     "lib",
-    "src"
+    "src",
+    "style"
   ],
   "dependencies": {
     "@jsonforms/core": "2.3.1",
@@ -44,7 +45,6 @@
     "lint": "tslint -c ./tslint.json --project ./tsconfig.json",
     "build": "tsc",
     "watch": "tsc -w",
-    "publish": "yarn && yarn publish:latest",
     "publish:latest": "yarn publish --tag latest",
     "publish:next": "yarn publish --new-version \"$(semver $npm_package_version -i minor)-next.$(git rev-parse --short HEAD)\" --tag next"
   }
